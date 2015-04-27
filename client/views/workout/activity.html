@@ -1,0 +1,15 @@
+<template name="activity">
+  {{name}}<br/>
+  Reps: {{repDescription}}<br/>
+  {{#if progression}}
+    Progression:
+    <ul>
+    {{#each progression}}
+      <li>
+        {{name}}
+      </li>
+    {{/each}}
+    </ul>
+  {{else}}
+  {{/if}}
+</template>

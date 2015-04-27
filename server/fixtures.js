@@ -725,52 +725,49 @@ function addLink (exercise, type, description, link) {
 function addWorkouts() {
   Workouts._ensureIndex('shortName', {unique: 1});
   fixture.Workouts = {};
-  var workouts = fixture.Workouts,
-    exercises = fixture.Exercises,
-    lastWorkout,
-    sections = [];
+  var exercises = fixture.Exercises;
 
   // *****************************
   // *         WARM UP           *
   // *****************************
-  warmup = {
+  var warmup = {  // Section
     "name" : "Warm Up",
     "instruction": "Move swiftly from one exercise to the next.\n\nDynamic Stretches to get the joints nice and loose",
     "repeats" : 1,
-    "groups" : [
+    "sets" : [ // Sets
       {
         "description" : "Dynamic Stretches",
         "repeats" : 1,
-        "exercises" : [
-          addExerciseSet(exercises.wallExtension ,"5-10", 5, 10),
-          addExerciseSet(exercises.bandDislocates ,"5-10", 5, 10),
-          addExerciseSet(exercises.catCamel ,"5-10", 5, 10),
-          addExerciseSet(exercises.bodyCircles ,"5-10", 5, 10),
-          addExerciseSet(exercises.frontSideLegSwings ,"5-10", 5, 10)
+        "activities" : [
+          addActivity(exercises.wallExtension, "5-10", 5, 10),
+          addActivity(exercises.bandDislocates, "5-10", 5, 10),
+          addActivity(exercises.catCamel, "5-10", 5, 10),
+          addActivity(exercises.bodyCircles, "5-10", 5, 10),
+          addActivity(exercises.frontSideLegSwings, "5-10", 5, 10)
         ]
       }, {
         "description" : "Wrist Mobility",
         "repeats" : 1,
-        "exercises" : [
-          addExerciseSet(exercises.fingerPulses ,"10-30", 10, 30),
-          addExerciseSet(exercises.palmPulses ,"10-30", 10, 30),
-          addExerciseSet(exercises.ssPalmRolls ,"10-30", 10, 30),
-          addExerciseSet(exercises.ffElbowRotations ,"10-30", 10, 30),
-          addExerciseSet(exercises.ssWristStretchDown ,"10-30", 10, 30),
-          addExerciseSet(exercises.rfWristStretchDown ,"10-30", 10, 30),
-          addExerciseSet(exercises.rfWristStretchUp ,"10-30", 10, 30),
-          addExerciseSet(exercises.rfElbowRotationsUp ,"10-30", 10, 30),
-          addExerciseSet(exercises.ffWristStretchDown ,"10-30", 10, 30)
+        "activities" : [
+          addActivity(exercises.fingerPulses, "10-30", 10, 30),
+          addActivity(exercises.palmPulses, "10-30", 10, 30),
+          addActivity(exercises.ssPalmRolls, "10-30", 10, 30),
+          addActivity(exercises.ffElbowRotations, "10-30", 10, 30),
+          addActivity(exercises.ssWristStretchDown, "10-30", 10, 30),
+          addActivity(exercises.rfWristStretchDown, "10-30", 10, 30),
+          addActivity(exercises.rfWristStretchUp, "10-30", 10, 30),
+          addActivity(exercises.rfElbowRotationsUp, "10-30", 10, 30),
+          addActivity(exercises.ffWristStretchDown, "10-30", 10, 30)
         ]
       }, {
         "description" : "Bodyline Work",
         "repeats" : 1,
-        "exercises" : [
-          addExerciseSet(exercises.plank ,"10-60s", 10, 60),
-          addExerciseSet(exercises.sidePlank ,"10-60s", 10, 60),
-          addExerciseSet(exercises.reversePlank ,"10-60s", 10, 60),
-          addExerciseSet(exercises.hollowHold ,"10-60s", 10, 60),
-          addExerciseSet(exercises.arch ,"10-60s", 10, 60)
+        "activities" : [
+          addActivity(exercises.plank, "10-60s", 10, 60),
+          addActivity(exercises.sidePlank, "10-60s", 10, 60),
+          addActivity(exercises.reversePlank, "10-60s", 10, 60),
+          addActivity(exercises.hollowHold, "10-60s", 10, 60),
+          addActivity(exercises.arch, "10-60s", 10, 60)
         ]
       }
     ]
@@ -779,17 +776,17 @@ function addWorkouts() {
   // *****************************
   // *          Extras           *
   // *****************************
-  extras = {
-    "name" : "Extras",
+  var extras = {
+    "name" : "Extras", // Section
     "instruction": "Not sweating yet?  If not, pick one of these",
     "repeats" : 1,
-    "groups" : [
+    "sets" : [
       {
         "description" : "Activity - Pick one",
         "repeats" : 1,
-        "exercises" : [
-          addExerciseSet(exercises.squatJump ,"10-20", 10, 20),
-          addExerciseSet(exercises.burpee ,"10-20", 10, 20)
+        "activities" : [
+          addActivity(exercises.squatJump, "10-20", 10, 20),
+          addActivity(exercises.burpee, "10-20", 10, 20)
         ]
       }
     ]
@@ -798,26 +795,26 @@ function addWorkouts() {
   // *****************************
   // *          Skill            *
   // *****************************
-  skill = {
+  var skill = {
     "name" : "Skill Work",
     "instruction": "",
     "repeats" : 1,
-    "groups" : [
+    "sets" : [
       {
         "description" : "Handstand Progression",
         "repeats" : 1,
-        "exercises" : [
-          addExerciseSet(exercises.wallPlank ,"5-10 min", 5, 10),
-          addExerciseSet(exercises.wallHandstand ,"5-10 min", 5, 10),
-          addExerciseSet(exercises.freeHandstand ,"5-10 min", 5, 10)
+        "activities" : [
+          addActivity(exercises.wallPlank, "5-10 min", 5, 10),
+          addActivity(exercises.wallHandstand, "5-10 min", 5, 10),
+          addActivity(exercises.freeHandstand, "5-10 min", 5, 10)
         ]
       } , {
         "description" : "Support Practice",
         "repeats" : 1,
-        "exercises" : [
-          addExerciseSet(exercises.parallelBarSupport ,"2-3 min", 2, 3),
-          addExerciseSet(exercises.ringSupport ,"2-3 min", 2, 3),
-          addExerciseSet(exercises.rtoSupport ,"2-3 min", 2, 3),
+        "activities" : [
+          addActivity(exercises.parallelBarSupport, "2-3 min", 2, 3),
+          addActivity(exercises.ringSupport, "2-3 min", 2, 3),
+          addActivity(exercises.rtoSupport, "2-3 min", 2, 3),
         ]
       }
     ]
@@ -826,146 +823,132 @@ function addWorkouts() {
   // *****************************
   // *   Strength - First Pair   *
   // *****************************
-  strengthPair1 = {
-    "name" : "Strength First Pair",
+  var strengthPair1 = { // Set
+    "description" : "First Pair",
     "instruction": "90 Second rest between each exercise",
     "repeats" : 3,
-    "groups" : [
-      {
-        "description" : "Pullup Progression",
-        "repeats" : 1,
-        "exercises" : [
-          addExerciseSet(exercises.negativePullup ,"5-8", 5, 8),
-          addExerciseSet(exercises.pullup ,"5-8", 5, 8),
-          addExerciseSet(exercises.lsitPullup ,"5-8", 5, 8),
-          addExerciseSet(exercises.pullover ,"5-8", 5, 8)
-        ]
-      }, {
-        "description" : "Rest",
-        "repeats" : 1,
-        "exercises" : [
-          addExerciseSet(exercises.rest ,"90 sec", 60, 180)
-        ]
-      }, {
-        "description" : "Dipping Progression",
-        "repeats" : 1,
-        "exercises" : [
-          addExerciseSet(exercises.parallelBarDips ,"5-8", 5, 8),
-          addExerciseSet(exercises.ringDips ,"5-8", 5, 8),
-          addExerciseSet(exercises.ringLsitDips ,"5-8", 5, 8)
-        ]
-      }, {
-        "description" : "Rest",
-        "repeats" : 1,
-        "exercises" : [
-          addExerciseSet(exercises.rest ,"90 sec", 60, 180)
-        ]
-      }
+    "activities" : [
+      addActivity(exercises.pullup, "5-8", 5, 8, [
+        addProgression(exercises.negativePullup),
+        addProgression(exercises.pullup),
+        addProgression(exercises.lsitPullup),
+        addProgression(exercises.pullover)
+      ]),
+      addActivity(exercises.rest, "90 sec", 60, 180),
+      addActivity(exercises.parallelBarDips, "5-8", 5, 8, [
+        addProgression(exercises.parallelBarDips),
+        addProgression(exercises.ringDips),
+        addProgression(exercises.ringLsitDips),
+      ]),
+      addActivity(exercises.rest, "90 sec", 60, 180)
     ]
   };
 
   // *****************************
   // *  Strength - Second Pair   *
   // *****************************
-  strengthPair2 = {
-    "name" : "Strength Second Pair",
+  var strengthPair2 = { //set
+    "description" : "Second Pair",
     "instruction": "90 Second rest between each exercise",
     "repeats" : 3,
-    "groups" : [
-      {
-        "description" : "Squat Progression",
-        "repeats" : 1,
-        "exercises" : [
-          addExerciseSet(exercises.assistedSquat ,"5-8", 5, 8),
-          addExerciseSet(exercises.squat ,"5-8", 5, 8),
-          addExerciseSet(exercises.deepStepUp ,"5-8", 5, 8)
-        ]
-      }, {
-        "description" : "Rest",
-        "repeats" : 1,
-        "exercises" : [
-          addExerciseSet(exercises.rest ,"90 sec", 60, 180)
-        ]
-      }, {
-        "description" : "L-sit Progression",
-        "repeats" : 1,
-        "exercises" : [
-          addExerciseSet(exercises.footSupportedLsit ,"10-30s", 10, 30),
-          addExerciseSet(exercises.oneLegFootSupportedLsit ,"10-30s", 10, 30),
-          addExerciseSet(exercises.tuckLsit ,"10-30s", 10, 30),
-          addExerciseSet(exercises.advTuckLsit ,"10-30s", 10, 30),
-          addExerciseSet(exercises.lsit ,"10-30s", 10, 30)
-        ]
-      }, {
-        "description" : "Rest",
-        "repeats" : 1,
-        "exercises" : [
-          addExerciseSet(exercises.rest ,"90 sec", 60, 180)
-        ]
-      }
+    "activities" : [
+      addActivity(exercises.squat, "5-8", 5, 8, [
+        addProgression(exercises.assistedSquat),
+        addProgression(exercises.squat),
+        addProgression(exercises.deepStepUp)
+      ]),
+      addActivity(exercises.rest, "90 sec", 60, 180),
+      addActivity(exercises.lsit, "10-30s", 10, 30, [
+        addProgression(exercises.footSupportedLsit),
+        addProgression(exercises.oneLegFootSupportedLsit),
+        addProgression(exercises.tuckLsit),
+        addProgression(exercises.advTuckLsit),
+        addProgression(exercises.lsit)
+      ]),
+      addActivity(exercises.rest, "90 sec", 60, 180),
     ]
   };
 
   // *****************************
   // *   Strength - Third Pair   *
   // *****************************
-  strengthPair3 = {
-    "name" : "Strength Third Pair",
+  var strengthPair3 = { //set
+    "description" : "Third Pair",
     "instruction": "90 Second rest between each exercise",
     "repeats" : 3,
-    "groups" : [
-      {
-        "description" : "Pushup Progression",
-        "repeats" : 1,
-        "exercises" : [
-          addExerciseSet(exercises.verticalPushup ,"5-8", 5, 8),
-          addExerciseSet(exercises.inclinePushup ,"5-8", 5, 8),
-          addExerciseSet(exercises.pushup ,"5-8", 5, 8),
-          addExerciseSet(exercises.diamondPushup ,"5-8", 5, 8),
-          addExerciseSet(exercises.ringsWidePushup ,"5-8", 5, 8),
-          addExerciseSet(exercises.ringsPushup ,"5-8", 5, 8),
-          addExerciseSet(exercises.rtoPushup ,"5-8", 5, 8),
-          addExerciseSet(exercises.rtoPseudoPlanchePushup ,"5-8", 5, 8),
-          // How do I mark this as replacing options 5-8?
-          addExerciseSet(exercises.pseudoPlanchePushup ,"5-8", 5, 8)
-        ]
-      }, {
-        "description" : "Rest",
-        "repeats" : 1,
-        "exercises" : [
-          addExerciseSet(exercises.rest ,"90 sec", 60, 180)
-        ]
-      }, {
-        "description" : "Row Progression",
-        "repeats" : 1,
-        "exercises" : [
-          addExerciseSet(exercises.verticalRows ,"5-8", 5, 8),
-          addExerciseSet(exercises.inclineRows ,"5-8", 5, 8),
-          addExerciseSet(exercises.horizontalRows ,"5-8", 5, 8),
-          addExerciseSet(exercises.wideRows ,"5-8", 5, 8),
-          addExerciseSet(exercises.tuckFrontLever ,"5-8", 5, 8),
-          addExerciseSet(exercises.tuckIceCreamMaker ,"5-8", 5, 8),
-          addExerciseSet(exercises.tuckFrontLeverRow ,"5-8", 5, 8),
-          addExerciseSet(exercises.advTuckFrontLeverRow ,"5-8", 5, 8)
-        ]
-      }, {
-        "description" : "Rest",
-        "repeats" : 1,
-        "exercises" : [
-          addExerciseSet(exercises.rest ,"90 sec", 60, 180)
-        ]
-      }
+    "activities" : [
+      addActivity(exercises.pushup, "5-8", 5, 8, [
+        addProgression(exercises.verticalPushup),
+        addProgression(exercises.inclinePushup),
+        addProgression(exercises.pushup),
+        addProgression(exercises.diamondPushup),
+        addProgression(exercises.ringsWidePushup),
+        addProgression(exercises.ringsPushup),
+        addProgression(exercises.rtoPushup),
+        addProgression(exercises.rtoPseudoPlanchePushup),
+        // How do I mark this as replacing options 5-8?
+        addActivity(exercises.pseudoPlanchePushup)
+      ]),
+      addActivity(exercises.rest, "90 sec", 60, 180),
+      addActivity(exercises.horizontalRows, "5-8", 5, 8, [
+        addProgression(exercises.verticalRows),
+        addProgression(exercises.inclineRows),
+        addProgression(exercises.horizontalRows),
+        addProgression(exercises.wideRows),
+        addProgression(exercises.tuckFrontLever),
+        addProgression(exercises.tuckIceCreamMaker),
+        addProgression(exercises.tuckFrontLeverRow),
+        addProgression(exercises.advTuckFrontLeverRow)
+      ]),
+      addActivity(exercises.rest, "90 sec", 60, 180),
+    ]
+  };
+  var strength = { // Section
+    "name" : "Strength",
+    "instruction": "",
+    "repeats" : 1,
+    "sets" : [
+        strengthPair1,
+        strengthPair2,
+        strengthPair3
     ]
   };
 
+  var workout = {
+    "shortName" : "redditBWF_Basic",
+    "name" : "Reddit Body Weight Fitness",
+    "url" : "http://reddit.com/r/bodyweightfitness",
+    "sections" : [
+      warmup,
+      extras,
+      skill,
+      strength
+    ]
+  };
+  Workouts.insert(workout);
+  workout = Workouts.findOne({"shortName" : "redditBWF_Basic"});
+
+  fixture.Workouts.redditBodyWeight = workout;
 }
 
-function addExerciseSet(exercise, repDescription, minReps, maxReps) {
-  return {
+function addActivity(exercise, repDescription, minReps, maxReps, progression) {
+  var activity = {
+    "shortName" : exercise.shortName,
     "name" : exercise.name,
     "repDescription" : repDescription,
     "repMin" : minReps,
     "repMax" : maxReps
+  };
+  if (progression) {
+    activity.progression = progression;
+  }
+  return activity;
+}
+
+function addProgression(exercise) {
+  return {
+    "shortName" : exercise.shortName,
+    "name": exercise.name
   };
 }
 

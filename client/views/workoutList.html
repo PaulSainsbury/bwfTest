@@ -1,0 +1,7 @@
+<template name="workoutList">
+  <h1>Pick a workout</h1>
+
+  {{#each workouts}}
+    <a href="workout/{{shortName}}">{{name}}</a>
+  {{/each}}
+</template>

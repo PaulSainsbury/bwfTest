@@ -1,0 +1,16 @@
+<template name="workout">
+  <h1>
+    <a href="{{url}}">{{name}}</a>
+  </h1>
+  <h2>
+    Sections:
+  </h2>
+  <ul>
+    {{#each sections}}
+      <li>
+        {{> section}}
+      </li>
+    {{/each}}
+  </ul>
+
+</template>

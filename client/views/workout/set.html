@@ -1,0 +1,11 @@
+<template name="set">
+  {{description}}<br/>
+  Instructions: {{instruction}}<br/>
+  Repeat: {{repeats}} time(s)<br/>
+  Activities:<br/>
+  <ul>
+    {{#each activities}}
+      {{> activity}}
+    {{/each}}
+  </ul>
+</template>

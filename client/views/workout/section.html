@@ -1,0 +1,12 @@
+<template name="section">
+  {{name}}<br/>
+  Instructions: {{instruction}}<br/>
+  Repeat: {{repeats}} time(s)<br/>
+  <ul>
+  {{#each sets}}
+    <li>
+      {{> set}}
+    </li>
+  {{/each}}
+  </ul>
+</template>

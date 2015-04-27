@@ -7,3 +7,12 @@
 meteor-platform
 autopublish
 insecure
+underscore
+iron:router
+dburles:collection-helpers
+aldeed:collection2
+momentjs:moment
+fourseven:scss
+meteoric:ionic-sass
+meteoric:ionicons-sass
+meteoric:ionic
